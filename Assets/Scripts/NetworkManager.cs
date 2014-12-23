@@ -135,6 +135,8 @@ public class NetworkManager : MonoBehaviour {
 		GameObject tankModel = currentTank;
 		if (tankModel == null)
 			return;
+        if ((tankModel.GetComponent<TankModel>() == null) || (tankModel.GetComponent<TankModel>().tankData == null))
+            return;
 		if (tankModel.GetComponent<TankModel>().tankData.getCurrentHealth() <= 0) {
 			playerManager.deaths += 1;
 			Vector3 v = new Vector3 (0, playerManager.lastHitId, 0);
