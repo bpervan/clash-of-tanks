@@ -67,12 +67,12 @@ public class TankModel : MonoBehaviour {
 			Debug.Log ("Collider name: " + other.gameObject.name);
 
 			if (other.gameObject.GetComponent<Projectile> () != null
-					&& other.gameObject.GetComponent<Projectile> ().owner != this.playerManager.myId
-			    	&& other.gameObject.GetComponent<Projectile> ().owner != 0) {
-					Debug.Log ("Projectile owner: " + other.gameObject.GetComponent<Projectile> ().owner);
+					&& other.gameObject.GetComponent<Projectile> ().getOwner() != this.playerManager.myId)
+			    	//&& other.gameObject.GetComponent<Projectile> ().owner != 0) {
+            {Debug.Log ("Projectile owner: " + other.gameObject.GetComponent<Projectile> ().getOwner());
 					int damage = other.gameObject.GetComponent<Projectile> ().damage + Random.Range (-5, 6);
 					this.tankData.decHealth (damage);
-					this.playerManager.lastHitId = other.gameObject.GetComponent<Projectile> ().owner;
+					this.playerManager.lastHitId = other.gameObject.GetComponent<Projectile> ().getOwner();
 					other.gameObject.GetComponent<Projectile> ().selfDestroy ();
 			} else if (other.gameObject.name.StartsWith ("AmmoCrate")) {
 					other.gameObject.SetActive (false);

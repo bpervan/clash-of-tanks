@@ -6,8 +6,12 @@ public class Projectile : MonoBehaviour {
 	private float velocity;
 	public int damage;
 	private bool moving;
-	public int owner;
+	private volatile int owner;
 	public GameObject explosion;
+
+    public int getOwner() {
+        return this.owner;
+    }
 
 	// Use this for initialization
 	void Start () {
