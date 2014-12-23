@@ -29,7 +29,7 @@ public class HUD : MonoBehaviour {
 		drawResourceBar();
 
 	}
-
+    /* This function draws resource bar */
 	void drawResourceBar () {
 		GUI.skin = resourceSkin;
 		GUI.BeginGroup(new Rect(0,0,Screen.width,RESOURCE_BAR_HEIGHT));

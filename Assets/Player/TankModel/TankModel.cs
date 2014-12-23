@@ -5,7 +5,6 @@ public class TankModel : MonoBehaviour {
 
 	public TankBody body;
 	public TankTurret turret;
-	public Player player;
 	private bool moving, rotating;
 	private volatile bool colliding;
 	public float rotation, movement;
@@ -14,8 +13,6 @@ public class TankModel : MonoBehaviour {
 	public ITank tankData;
 
 	void Start () {
-		//body = GetComponentInChildren <TankBody > ();
-		//turret = GetComponentInChildren <TankTurret> ();
 		moving = false;
 		rotating = false;
 		colliding = false;
@@ -93,11 +90,4 @@ public class TankModel : MonoBehaviour {
 
 		}
 	}
-
-	
 }
-
-
-
-
-
