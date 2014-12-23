@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 3580bfd8ff606214c9ac6bb8ede5f06e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - resourceSkin: {fileID: 11400000, guid: 84c9107bd12410045bca9e451e898b87, type: 2}
+  - tank: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
