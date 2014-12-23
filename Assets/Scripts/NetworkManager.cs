@@ -139,8 +139,8 @@ public class NetworkManager : MonoBehaviour {
             return;
 		if (tankModel.GetComponent<TankModel>().tankData.getCurrentHealth() <= 0) {
 			playerManager.deaths += 1;
-			Vector3 v = new Vector3 (0, playerManager.lastHitId, 0);
-			networkView.RPC("incPlayerKill", RPCMode.AllBuffered, v);
+			//Vector3 v = new Vector3 (0, playerManager.lastHitId, 0);
+			networkView.RPC("incPlayerKill", RPCMode.AllBuffered, playerManager.lastHitId);
 			currentTank = respawnPlayer(tankModel);
 
 		}
@@ -166,12 +166,15 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	[RPC]
-	void incPlayerKill (Vector3 vec) {
-		int id = Mathf.RoundToInt (vec.y);
-		Debug.Log ("Set kill id:" + id);
-		if (playerManager.myId == id) {
+	void incPlayerKill (string vec) {
+		//int id = Mathf.RoundToInt (vec.y);
+		//Debug.Log ("Set kill id:" + id);
+        if (vec.Equals(Network.player.ipAddress)) {
+            playerManager.kills += 1;
+        }
+		/*if (playerManager.myId == id) {
 			playerManager.kills += 1;
-		}
+		}*/
 	}
 
 	void OnPlayerDisconnected(NetworkPlayer player) {

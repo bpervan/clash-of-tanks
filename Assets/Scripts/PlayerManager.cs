@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour {
 	public int deaths;
 
 	public int myId;
-	public int lastHitId;
+	public string lastHitId;
 
 	void Start () {
 		username = "";
@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour {
 		deaths = 0;
 
 		myId = 0;
-		lastHitId = -1;
+		lastHitId = "";
 	}
 
 	void Update () {

@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour {
 	public int damage;
 	private bool moving;
 	private volatile int owner;
+    private volatile string ownerIp;
 	public GameObject explosion;
 
     public int getOwner() {
@@ -17,6 +18,13 @@ public class Projectile : MonoBehaviour {
         if (networkView.isMine) {
             this.owner = ownerId;
             networkView.RPC("setOwner", RPCMode.All, ownerId);
+        }
+    }
+
+    public void setOwnerLocal(string ownerIp) {
+        if (networkView.isMine) {
+            this.ownerIp = ownerIp;
+            networkView.RPC("setOwner", RPCMode.All, ownerIp);
         }
     }
 
@@ -43,10 +51,10 @@ public class Projectile : MonoBehaviour {
 	}
 
 	[RPC]
-	public void setOwner(int ownerId) {
-		if (this.owner == 0) {
-			Debug.Log ("Set projectile id: " + ownerId);
-			this.owner = ownerId;
+	public void setOwner(string ownerIp) {
+		if (this.ownerIp == null) {
+			Debug.Log ("Set projectile id: " + ownerIp);
+			this.ownerIp = ownerIp;
 		}
 	}
 

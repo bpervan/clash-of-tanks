@@ -53,7 +53,7 @@ public class TankTurret : MonoBehaviour {
 			gameObject.transform.Rotate (new Vector3 (-2, 0, 0));
 			Projectile projectile = gameObject.GetComponentInChildren <Projectile> ();
 			//projectile.networkView.RPC ("setOwner", RPCMode.AllBuffered, owner);
-            projectile.setOwnerLocal(owner);
+            projectile.setOwnerLocal(gameObject.networkView.owner.ipAddress);
             //projectile.owner = owner;
 			projectile.fire ();
 			currentWeaponRechargeTime = 0;
