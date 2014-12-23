@@ -13,6 +13,13 @@ public class Projectile : MonoBehaviour {
         return this.owner;
     }
 
+    public void setOwnerLocal(int ownerId) {
+        if (networkView.isMine) {
+            this.owner = ownerId;
+            networkView.RPC("setOwner", RPCMode.All, ownerId);
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
 		velocity = 50;
