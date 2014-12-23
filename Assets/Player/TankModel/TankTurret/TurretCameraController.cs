@@ -12,9 +12,4 @@ public class TurretCameraController : MonoBehaviour {
 			camera.enabled = false;
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

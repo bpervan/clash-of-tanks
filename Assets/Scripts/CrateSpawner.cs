@@ -36,6 +36,7 @@ public class CrateSpawner : MonoBehaviour {
 					try {
 						Network.Instantiate(crates[crateNum], spawnPos, crates[crateNum].rigidbody.rotation, 0);
 					} catch (UnityException ex)  {
+                        Debug.Log(ex.ToString());
 					}
 					time = 0.0f;
 				}

@@ -4,8 +4,6 @@ using System.Collections;
 [ExecuteInEditMode]
 public class FireButton : CNAbstractController {
 
-	private Camera mainCamera;
-	//private Vector3 bottomDown;
 	public bool isFired = false;
 
 	[SerializeField]
@@ -20,7 +18,7 @@ public class FireButton : CNAbstractController {
 	public override void OnEnable(){
 		base.OnEnable ();
 		base.Anchor = Anchors.RightTop;
-		mainCamera = GetComponentInParent<Camera>();
+        this.isHiddenIfNotTweaking = false;
 
 		baseTransform = TransformCache.FindChild ("Base");
 		baseGameObject = baseTransform.gameObject;
